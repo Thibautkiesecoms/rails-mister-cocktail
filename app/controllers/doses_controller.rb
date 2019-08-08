@@ -1,4 +1,10 @@
 class DosesController < ApplicationController
-  def description
+  def create
+  end
+
+  def new
+  end
+
+  def delete
   end
 end
