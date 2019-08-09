@@ -1,5 +1,31 @@
-<h1><%= @cocktail.name %></h1>
-<p>****************************</p>
-<%= link_to "Add" %>
-<%= link_to "Back", cocktails_path %>
-<%= link_to "Update", edit_cocktail_path(@cocktail) %>
+<table class="table">
+ <thead>
+   <tr>
+     <th scope="col"><%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %></th>
+     <th scope="col"><%= link_to "Back", cocktails_path, class: "btn btn-primary"  %></th>
+     <th scope="col"><%= link_to "Update", edit_cocktail_path(@cocktail), class: "btn btn-primary"  %></th>
+
+     <th scope="col"><%= @cocktail.name %></th>
+   </tr>
+   <tr>
+     <th scope="col">Ingredients</th>
+     <th scope="col">Doses</th>
+     <th scope="col">Delete</th>
+   </tr>
+ </thead>
+ <tbody>
+ <% @cocktail.doses.each do |dose| %>
+      <%= dose.ingredient.name %>
+      <%= dose.description %>
+
+         <%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary"  %>
+      <% end %>
+       <td>
+     </td>
+   </tr>
+ </tbody>
+</table>
+
+
+
+
